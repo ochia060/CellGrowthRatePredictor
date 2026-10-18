@@ -1,14 +1,27 @@
-# =====================================================================
-# MAIN PROGRAM
-# Your code starts here. This is the file that will be run.
-# =====================================================================
 
-import src.functions as sf  # This allows you to access functions from functions.py using sf.function_name()
-from src.classes import Batch  # This allows you to import individual Classes from classes.py
-from src.constants import *  # This imports all constants from constants.py
+import os
 
-ph_optimal = sf.calculate_average(PH_LIMITS)
-temperature_optimal = sf.calculate_average(TEMPERATURE_LIMITS)
+from src.classes import CellGrowthCalculator
 
-batch = Batch(batch_id=1, ph_opt=ph_optimal, temperature_opt=temperature_optimal)
-batch.display_info()
+filepath_dataset = os.path.join("datasets", "dataset_cell_growth_4factor.csv")
+
+# create the predictor and compare the models
+predictor = CellGrowthCalculator(filepath_dataset)
+
+results = predictor.train_and_compare()
+
+# export table for model comparison
+predictor.export_results(os.path.join("tables", "model_comparison.csv"))
+
+# export figures
+predictor.export_prediction_plot(os.path.join("figures", "predicted_vs_actual.png"))
+
+predictor.export_comparison_plot(os.path.join("figures", "model_comparison.png"))
+
+# summary of results
+print("Model comparison:")
+print(results.round(4).to_string(index=False))
+
+print("\nSelected model:", predictor.best_model_name)
+
+
