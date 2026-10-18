@@ -158,20 +158,20 @@ class CellGrowthCalculator:
                 "Run train_and_compare() first."
             )
 
-        # Generate predictions using the selected model.
+        # predict growth rate with chosen model
         predictions = self.best_model.predict(self.x_test)
 
-        # Find the range for the perfect-prediction line.
+        # plot predicted and actual growth rate
         lower = min(self.y_test.min(), predictions.min())
         upper = max(self.y_test.max(), predictions.max())
 
-        fig, ax = plt.subplots(figsize=(6, 6))
+        fig, ax = plt.subplots(figsize=(8, 6))
 
         ax.scatter(
             self.y_test,
             predictions,
             alpha=0.7,
-            label="predicted growth rate"
+            label="model prediction"
         )
 
         ax.plot(
@@ -184,35 +184,36 @@ class CellGrowthCalculator:
 
         ax.set_xlabel("Actual Growth Rate [d^-1]")
         ax.set_ylabel("Predicted Growth Rate [d^-1]")
-        ax.set_title(
-            f"Actual vs Predicted: {self.best_model_name}"
-        )
+        ax.set_title(f"Actual vs Predicted Cell Growth Rate: {self.best_model_name}")
 
         ax.legend()
 
         fig.tight_layout()
-        fig.savefig(filepath, dpi=300)
+        fig.savefig(filepath, dpi=400)
         plt.close(fig)
 
     def export_comparison_plot(self, filepath):
-        # Visualize test-set errors for both models.
+        # plot test rmse for both models
         if self.results is None:
             raise RuntimeError(
                 "Run train_and_compare() first."
             )
 
-        fig, ax = plt.subplots(figsize=(8, 5))
+        fig, ax = plt.subplots(figsize=(8, 6))
 
-        ax.bar(
+        bars=ax.bar(
             self.results["Model"],
-            self.results["Test RMSE"]
+            self.results["Test RMSE"],
+            width=0.4,
         )
+
+        ax.bar_label(bars, fmt="%.5f", padding=3)
 
         ax.set_ylabel("Test RMSE [d^-1]")
         ax.set_title("Regression Model Comparison")
-        ax.tick_params(axis="x", rotation=15)
+        ax.tick_params(axis="x", rotation=10)
 
         fig.tight_layout()
-        fig.savefig(filepath, dpi=300)
+        fig.savefig(filepath, dpi=400)
         plt.close(fig)
 

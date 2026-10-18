@@ -18,6 +18,7 @@ predictor.export_prediction_plot(os.path.join("figures", "predicted_vs_actual.pn
 
 predictor.export_comparison_plot(os.path.join("figures", "model_comparison.png"))
 
+
 # summary of results
 print("Model comparison:")
 print(results.round(4).to_string(index=False))
