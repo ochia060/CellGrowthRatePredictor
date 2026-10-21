@@ -26,9 +26,7 @@ The data is split into the features (Temperature, pH, [Glucose], and [Lactate]) 
 split into portions for training (80%) and testing (20%) the chosen models.
 
 ### 2. Model building
-Two models were chosen to predict cell growth rate:
-- polynomial regression
-- KNN regression
+Two models were chosen to predict cell growth rate: polynomial regression and KNN regression.\
 A pipeline is run which standardizes the data and fits it to the chosen model, which includes linear regression for 
 the polynomial regression model.
 A grid is then created testing different parameters for each model in order to find the best fitting one. For polynomial
