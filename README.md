@@ -75,7 +75,7 @@ KNN regression with 9 neighbours and distance-based weighting.
 Looking at the RMSE and R^2^ values for both models shows only a small difference, indicating that the performance is 
 relatively similar.
 
-![img.png](img.png)
+![alt text](img.png)
 
 
 ### Model Advantages and Limitations
