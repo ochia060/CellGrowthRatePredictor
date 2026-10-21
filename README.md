@@ -13,8 +13,6 @@ The models are trained and tuned on a dataset, and a "best model" is chosen base
 - sklearn 1.9.0
 
 ## Code Design
-data loading, preprocessing, feature engineering, model training
-### Overall Workflow of main.py Execution
 The major stages when main.py is executed are as follows:
 1. data loading and retrieval
 2. model building
@@ -22,31 +20,31 @@ The major stages when main.py is executed are as follows:
 4. model execution and comparison
 5. graphical comparison and validation
 
-### Data loadig and retrieval
+### 1. Data loadig and retrieval
 To start the program, data is loaded and retrieved from the dataset containing the simulated cell growth rate data.
 The data is split into the features (Temperature, pH, [Glucose], and [Lactate]) and target (Cell Growth Rate) and then
 split into portions for training (80%) and testing (20%) the chosen models.
 
-### Model building
+### 2. Model building
 Two models were chosen to predict cell growth rate:
 - polynomial regression
-- KNN regression\
+- KNN regression
 A pipeline is run which standardizes the data and fits it to the chosen model, which includes linear regression for 
-the polynomial regression model.\
+the polynomial regression model.
 A grid is then created testing different parameters for each model in order to find the best fitting one. For polynomial
 regression, multiple degrees were tested, and for KNN regression, the number of neighbours and the weights were tested.
 
-### Model training and tuning
+### 3. Model training and tuning
 To train and tune the models, a grid search with a four-fold cross validation was used. The hyperparameters (polynomial
 degree, number of neighbours, type of weight) were optimised for both models, and the results were saved for later use.
 
-### Model execution and comparison
+### 4. Model execution and comparison
 Each of the tuned models was used on the test data, and the rmse and r2 values were found for each.\
 The results of each model for predicting cell growth rate were compiled in a table for easy comparison. This table is 
 printed in the terminal, and also exported as a .csv file after main.py execution.\
 The final model chosen was the one which demonstrated the smallest rmse value.
 
-### Graphical comparison and validation
+### 5. Graphical comparison and validation
 Validation curves were generated for each model, showing the ideal hyperparameters to fit the data.\
 A graph comparing the cell growth rate calculated by the final chosen model and the actual data was also created.
 
