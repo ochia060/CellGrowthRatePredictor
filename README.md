@@ -47,12 +47,39 @@ Validation curves were generated for each model, showing the ideal hyperparamete
 A graph comparing the cell growth rate calculated by the final chosen model and the actual data was also created.
 
 ## Analysis
-
 ### Model Architecture
+Two regression models, polynomial regression and k-nearest neighbours (KNN) regression were implemented and evaluated to
+identify a suitable model for predicting cell growth rate.\
+Polynomial regression was chosen due to its capability of representing non-linear relationships between variables while
+KNN regression was chosen due to its prediction of target values based on observations with similar input features.\
+The model hyperparameters were optimised using grid search with a 4-fold cross validation. The resulting scores give a 
+better estimation of model performance in comparison to a standard train-validation split.\
+For polynomial regression, polynomial degrees of 1, 2, 3, and 4 were tested. This allowed analysis on whether or not 
+a greater model flexibility improved accuracy.
+For KNN regression, neighbour counts of 3, 5, 7, 9, and 11 were tested, with uniform and distance-based weighting.
+
 
 ### Model Comparison
+The chosen models were compared using root mean squared error (RMSE) and the coefficient of determination (R^2^).
+RMSE measures the magnitude of prediction errors, where a lower value indicates a better prediction by the model.
+R^2^ measures how well the model fits the actual data, where a value closer to 1 indicates a better fit. 
+A summary table of results is shown below.
+
+|Model                |Best Parameters                   |Mean CV RMSE|Mean CV R2|CV R2 Std|Test RMSE|Test R2|
+|---------------------|----------------------------------|------------|----------|---------|---------|-------|
+|Polynomial Regression|Polynomial Degree = 2             |0.15423     |0.28298   |0.01782  |0.15703  |0.38413|
+|KNN Regression       |Neighbours = 9, Weights = distance|0.15155     |0.30603   |0.05838  |0.15873  |0.37071|
+
+For this project, the selected "best model" was the one with the lowest cross validation RMSE, which in this case is
+KNN regression with 9 neighbours and distance-based weighting.
+Looking at the RMSE and R^2^ values for both models shows only a small difference, indicating that the performance is 
+relatively similar.
+
+![img.png](img.png)
+
 
 ### Model Advantages and Limitations
+uadkeqwbdljbqlhdbiehdbi
 
 ### Influencing Factors of Cell Growth Rate
 Temperature, pH, [glucose], and [lactate] all influence the specific growth rate of cells in a different way.\
@@ -65,11 +92,12 @@ Glucose is the primary energy source for many cells, therefore a low concentrati
 and slow growth, and a very high concentration can result in osmotic stress and lactate accumulation.\
 Lactate is a typical waste product produced by glycolysis. Excessive concentrations of lactate can lower intracellular pH
 and inhibit key metabolic enzymes, reducing growth rate.\
-
-
+For this project, a high specific growth rate is observed when...
+and a low specific growth rate is observed when...
+The model's ability to predict...
 
 ### Model Applications
-
+This model has applications in... where prediction of cell growth rate is...
 
 
         
