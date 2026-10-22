@@ -1,9 +1,14 @@
 # Cell Growth Rate Prediction
 This program predicts cell growth rate based on temperature, pH, [glucose], and [lactate] using polynomial regression
 and KNN regression.\
-The models are trained and tuned on a dataset, and a "best model" is chosen based on the rmse value obtained.
+The models are trained and tuned on a dataset, and a "best model" is chosen based on the RMSE value obtained.
 
 ## Highlights
+- Designed a program to predict specific cell growth rate
+- Built regression models to fit data
+- Optimised model hyperparameters for minimum error
+- Tested models on training data using a cross validation grid search
+- Created figures and tables summarizing results 
 
 ## Environment
 - Python 3.14.7
@@ -37,10 +42,10 @@ To train and tune the models, a grid search with a four-fold cross validation wa
 degree, number of neighbours, type of weight) were optimised for both models, and the results were saved for later use.
 
 ### 4. Model execution and comparison
-Each of the tuned models was used on the test data, and the rmse and r2 values were found for each.\
+Each of the tuned models was used on the test data, and the RMSE and R2 values were found for each.\
 The results of each model for predicting cell growth rate were compiled in a table for easy comparison. This table is 
 printed in the terminal, and also exported as a .csv file after main.py execution.\
-The final model chosen was the one which demonstrated the smallest rmse value.
+The final model chosen was the one which demonstrated the smallest RMSE value.
 
 ### 5. Graphical comparison and validation
 Validation curves were generated for each model, showing the ideal hyperparameters to fit the data.\
@@ -60,9 +65,9 @@ For KNN regression, neighbour counts of 3, 5, 7, 9, and 11 were tested, with uni
 
 
 ### Model Comparison
-The chosen models were compared using root mean squared error (RMSE) and the coefficient of determination (R^2^).
+The chosen models were compared using root mean squared error (RMSE) and the coefficient of determination (R2).
 RMSE measures the magnitude of prediction errors, where a lower value indicates a better prediction by the model.
-R^2^ measures how well the model fits the actual data, where a value closer to 1 indicates a better fit. 
+R2 measures how well the model fits the actual data, where a value closer to 1 indicates a better fit. 
 A summary table of results is shown below.
 
 |Model                |Best Parameters                   |Mean CV RMSE|Mean CV R2|CV R2 Std|Test RMSE|Test R2|
@@ -72,14 +77,12 @@ A summary table of results is shown below.
 
 For this project, the selected "best model" was the one with the lowest cross validation RMSE, which in this case is
 KNN regression with 9 neighbours and distance-based weighting.
-Looking at the RMSE and R^2^ values for both models shows only a small difference, indicating that the performance is 
+Looking at the RMSE and R2 values for both models shows only a small difference, indicating that the performance is 
 relatively similar.
-
-![alt text](img.png)
 
 
 ### Model Advantages and Limitations
-uadkeqwbdljbqlhdbiehdbi
+u
 
 ### Influencing Factors of Cell Growth Rate
 Temperature, pH, [glucose], and [lactate] all influence the specific growth rate of cells in a different way.\
@@ -99,28 +102,6 @@ The model's ability to predict...
 ### Model Applications
 This model has applications in... where prediction of cell growth rate is...
 
-
-        
-        Highlights
-            Heading 2
-            3 - 10 words per bullet point
-            Include 5 bullet points in an unordered list.
-            Begin each bullet point with an action verb.
-                E.g., https://capd.mit.edu/resources/resume-action-verbs/
-            Focus on significant technical work, such as what you built, designed, implemented, optimized, tested, or learned.
-            Consider what you would want a potential employer to know about your Python skills after reading this section.
-        Code Design
-            Heading 2
-            500 - 1000 words
-            Describe the workflow of the program after main.py is executed.
-            Explain the purpose of each major stage of the workflow and why it exists.
-            Examples of major stages include (but are not limited to) data loading, preprocessing, feature engineering, model training, etc.
-            Do not simply list the functions and classes that are called.
-            Organize this section using Heading 3 subsections.
-            For each subsection, describe:
-                What does this stage of the workflow do?
-                Why is this stage necessary?
-                How does this stage contribute to the overall workflow?
         Analysis
             Heading 2
             1000 - 2000 words
@@ -135,12 +116,3 @@ This model has applications in... where prediction of cell growth rate is...
                 where the model's predictions may not be reliable.
             Describe potential applications of the model and how it could be used in practice.
             Organize this section using Heading 3 subsections.
-
-    Additional Information:
-        There is not a single correct model architecture.
-        You are primarily being evaluated on your ability to justify your choice of model architecture rather than developing a model with the lowest possible error.
-        Figures and tables do not count towards the word count.
-        Word limits should be viewed as strong suggestions, rather than hard limits.
-        You can use this website to convert CSV to Markdown, if needed: https://convertcsv.com/csv-to-markdown.htm
-        You should present your repository like a portfolio project rather than an assignment for a course. I would encourage you not to make any references to the course (e.g., course code, course name, assignment number, student ID, etc.).
-        You can find a guide to the major Markdown syntax elements here: https://www.markdownguide.org/cheat-sheet/
