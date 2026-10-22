@@ -82,7 +82,7 @@ relatively similar.
 
 
 ### Model Advantages and Limitations
-u
+Although the model can i
 
 ### Influencing Factors of Cell Growth Rate
 Temperature, pH, [glucose], and [lactate] all influence the specific growth rate of cells in a different way.\
@@ -100,7 +100,8 @@ and a low specific growth rate is observed when...
 The model's ability to predict...
 
 ### Model Applications
-This model has applications in... where prediction of cell growth rate is...
+This model predicts specific cell growth rate based on various factors, and therefore could be applied in the analysis
+and planning of experiments involving cell growth.
 
         Analysis
             Heading 2
