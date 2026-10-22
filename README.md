@@ -59,9 +59,13 @@ Polynomial regression was chosen due to its capability of representing non-linea
 KNN regression was chosen due to its prediction of target values based on observations with similar input features.\
 The model hyperparameters were optimised using grid search with a 4-fold cross validation. The resulting scores give a 
 better estimation of model performance in comparison to a standard train-validation split.\
-For polynomial regression, polynomial degrees of 1, 2, 3, and 4 were tested. This allowed analysis on whether or not 
-a greater model flexibility improved accuracy.
-For KNN regression, neighbour counts of 3, 5, 7, 9, and 11 were tested, with uniform and distance-based weighting.
+For polynomial regression, polynomial degrees of 1, 2, 3, and 4 were tested. 
+For KNN regression, neighbour counts of 3, 5, 7, 9, and 11 were tested, with uniform and distance-based weighting. 
+Validation curves were created for each model in order to show the optimal hyperparameter values obtained during tuning.
+A validation curve created for polynomial regression hyperparameter optimisation is shown below.
+<img width="3200" height="2400" alt="poly_validation_curve" src="https://github.com/user-attachments/assets/78b3b2e0-3be6-419f-978f-6d3291249588" />
+From the graph, it can be seen that the degree which provides the best fit is a degree of 2, where the RMSE is lowest with training
+and validation fits closest.
 
 
 ### Model Comparison
