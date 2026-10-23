@@ -66,6 +66,9 @@ These curves are shown below.
 
 <img width="3200" height="2400" alt="poly_validation_curve" src="https://github.com/user-attachments/assets/78b3b2e0-3be6-419f-978f-6d3291249588" />
 
+<img width="3200" height="2400" alt="knn_validation_curve" src="https://github.com/user-attachments/assets/35c00fca-2fc6-4ef4-8e8e-08b6e9e8ffba" />
+
+
 The polynomial validation curve shows that a degree of 2 produces the lowest validation RMSE from the tested degrees. 
 Increasing the degree reduces training RMSE, but validation RMSE increases at degrees 3 and 4, suggesting that higher 
 degree models fit the training data more closely but risk overfitting the data. Because of this, a degree of 2 was 
