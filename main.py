@@ -22,7 +22,35 @@ calculator.plot_poly_validation_curve(os.path.join("figures", "poly_validation_c
 
 calculator.plot_knn_validation_curve(os.path.join("figures", "knn_validation_curve.png"))
 
+# print a summary table for model comparison
 print("Model comparison:")
 print(results.round(5).to_string(index=False))
 
+# print the selected model
 print("\nSelected model:", calculator.best_model_name)
+
+
+# to find the largest and smallest growth rate and conditions
+df = calculator.data
+
+highest = df.loc[df["Specific Growth Rate [d^-1]"].idxmax()]
+lowest = df.loc[df["Specific Growth Rate [d^-1]"].idxmin()]
+
+print("\nConditions for highest observed growth rate:")
+print(highest.to_frame().T.to_string(index=False))
+
+print("\nConditions for lowest observed growth rate:")
+print(lowest.to_frame().T.to_string(index=False))
+
+# show the conditions that give the 10 largest and smallest growth rate
+print("\nLargest growth rate conditions:")
+print(
+    df.nlargest(5, "Specific Growth Rate [d^-1]")
+    .to_string(index=False)
+)
+
+print("\nSmallest growth rate conditions:")
+print(
+    df.nsmallest(5, "Specific Growth Rate [d^-1]")
+    .to_string(index=False)
+)
